@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="moduleApp.SecondWindow"
+        Title="RAMAPP"
+        Width="400"
+        Height="200"
+        CornerRadius="10"
+        Background="#302e28"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False"
+    xmlns:local="clr-namespace:moduleApp"
+    x:DataType="local:SecondWindow">
+
+    <Grid>
+        <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <TextBlock Margin="5,0"
+                    FontSize="18"
+                    HorizontalAlignment="Center"
+                    Foreground="White"
+                    VerticalAlignment="Center">
+                    Только не переусердствуй
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Spacing="5" HorizontalAlignment="Center" VerticalAlignment="Center"> 
+                <!--TextBox Name="program_execute" HorizontalAlignment="Center" Margin="0,0,0,5"></TextBox-->
+                <TextBox Name="name_group" ToolTip.Tip="Введите имя группы" HorizontalAlignment = "Center" VerticalAlignment="Center" Margin="0,0,0,5"  >mygroup</TextBox>
+                <TextBox Name="count_MB" ToolTip.Tip="Колличество необходимой памяти (М)" HorizontalAlignment="Center" VerticalAlignment="Center">500M</TextBox>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button  Name="MyButton" ToolTip.Tip="Запустить программу" Content="send to C++" Foreground="White" Click="MyButtonClickHandler" HorizontalAlignment="Center" VerticalAlignment="Center" >Send to make</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+</Window>

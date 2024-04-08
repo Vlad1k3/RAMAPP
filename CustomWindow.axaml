@@ -1,0 +1,36 @@
+<Window 
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="moduleApp.CustomWindow"
+        Title="Custom execute"
+        Width="400"
+        Height="250"
+        CornerRadius="10"
+        Background="#302e28"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+    
+    <Grid>       
+        <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top">
+                <TextBlock Margin="5,0"
+                    FontSize="18"
+                    HorizontalAlignment="Center" Foreground="White">
+                    Только осторожнее
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Spacing="5">
+                <TextBox Name="program_execute" ToolTip.Tip="Введите необхдимое приложение" HorizontalAlignment="Center" Margin="0,0,0,5"></TextBox>
+                <TextBox Name="name_group" ToolTip.Tip="Введите название группы" HorizontalAlignment = "Center" Margin="0,0,0,5"></TextBox>
+                <TextBox Name="count_MB" ToolTip.Tip="Колличество необходимой памяти (М)" HorizontalAlignment="Center"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Button  Name="MyButton" ToolTip.Tip="Запустить программу" Content="send to C++" Click="MyButtonClickHandler" HorizontalAlignment="Center" Foreground="White" >Send to make</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
