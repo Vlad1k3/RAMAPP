@@ -9,17 +9,20 @@
         CornerRadius="10"
         Background="#302e28"
         WindowStartupLocation="CenterScreen"
-        CanResize="False">
+        >
 
 
     <Grid>
-        <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <TextBlock>
-                Очень интереснаая информация про то как пользоваться приложением 
-                Турудудун турудун турудун турурн турурун турурудудун 
-            </TextBlock>
+        <StackPanel Spacing="20" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button Click="DisplayEventsForUser" Content="Показать историю" />
+            <Button Click="DeleteAllEvents" Content="Удалить историю" />
+        </StackPanel>
+
+        <StackPanel Spacing="50" HorizontalAlignment="Center" VerticalAlignment="Center">          
+            <ListBox x:Name="ResultsListBox"></ListBox>
         </StackPanel>
     </Grid>
+
 
     
 

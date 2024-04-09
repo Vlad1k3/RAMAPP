@@ -22,7 +22,10 @@ namespace moduleApp
 
         private void OpenManual_Click(object sender, RoutedEventArgs e)
         {
-            OpenProgramWindow("ManualWindow", "", "", "");
+            Window newWindow = new ManualWindow();
+
+            newWindow.Show();
+            
         }
 
         private void OpenTelegram_Click(object sender, RoutedEventArgs e)
@@ -92,6 +95,7 @@ namespace moduleApp
             using (Process process = new Process { StartInfo = startInfo })
             {
                 process.Start();
+                
 
                 using (StreamWriter sw = process.StandardInput)
                 {
