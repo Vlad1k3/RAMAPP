@@ -4,8 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         x:Class="moduleApp.MainWindow"
         Title="RAMAPP"
-        Width="800"
-        Height="600"
+        Width="700"
+        Height="500"
         CornerRadius="10"
         Background="#302e28"
         WindowStartupLocation="CenterScreen"
@@ -16,43 +16,43 @@
         <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <StackPanel 
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Top" Margin="-30, 0, 0, 0"
+                        VerticalAlignment="Top" 
                         Orientation="Horizontal">
-                <Button Content="Открыть помощь" Click="OpenManual_Click" Margin="5,0" FontSize="18" HorizontalAlignment="Center"  Background="#302e28"/>
+                <Button Content="Открыть помощь" Click="OpenManual_Click" FontSize="18" HorizontalAlignment="Center"  Background="#302e28"/>
 
             </StackPanel>
 
             <!--Первая линия-->
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="50" >
-                <Button Content="Открыть Chrome" Click="OpenChromium_Click" Background="#302e28" >
+                <Button ToolTip.Tip="Запустить Chromium" Content="Открыть Chrome" Click="OpenChromium_Click" Background="#302e28" >
                     <Image Width="100" Height="100" Source="avares://moduleApp/Assets/Chromium_logo.png"/>
                 </Button>
-                <Button Content="Открыть Telegram" Click="OpenTelegram_Click" Background="#302e28" >
+                <Button ToolTip.Tip="Запустить Telegram" Content="Открыть Telegram" Click="OpenTelegram_Click" Background="#302e28" >
                     <Image Width="100" Height="100" Source="avares://moduleApp/Assets/Telegram_logo.png"/>
                 </Button>
-                <Button Content="Открыть Code" Click="OpenCode_Click" Background="#302e28">
-                    <Image Width="150" Height="150" Source="avares://moduleApp/Assets/VScode_logo.png"/>
+                <Button ToolTip.Tip="Запустить Vusual Studio Code" Content="Открыть Code" Click="OpenCode_Click" Background="#302e28">
+                    <Image Width="100" Height="100" Source="avares://moduleApp/Assets/VScode_logo.png"/>
                 </Button>
             </StackPanel>
             <!--Вторая линия-->
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="50">
-                <Button Content="Открыть Firefox" Click="OpenFirefox_Click" Background="#302e28" >
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="50" >
+                <Button ToolTip.Tip="Запустить Firefox" Content="Открыть Firefox" Click="OpenFirefox_Click" Background="#302e28" >
                     <Image Width="100" Height="100" Source="avares://moduleApp/Assets/Firefox_logo.png"/>
                 </Button>
-                <Button Content="Открыть System Monitor" Click="OpenAndroid_Click" Background="#302e28" >
+                <Button ToolTip.Tip="Запустить Android Studio" Content="Открыть System Monitor" Click="OpenAndroid_Click" Background="#302e28" >
                     <Image Width="100" Height="100" Source="avares://moduleApp/Assets/Android_logo.png"/>
                 </Button>
-                <Button Content="Открыть Code" Click="OpenCode_Click" Background="#302e28">
-                    <Image Width="150" Height="150" Source="avares://moduleApp/Assets/VScode_logo.png"/>
+                <Button ToolTip.Tip="Запустить Virtual manager" Content="Открыть Code" Click="OpenVirtmng_Click" Background="#302e28">
+                    <Image Width="100" Height="100" Source="avares://moduleApp/Assets/virt-manager.png"/>
                 </Button>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Margin="-30, 0, 0, 0" Orientation="Horizontal" Spacing="50">
-                <Button Content="Запустить мониторинг системы" Click="OpenGSM_Click" Background="#302e28" Margin="-15, 0, 0, 0" >
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="50">
+                <Button ToolTip.Tip="Запустить Мониторинг системы" Content="Запустить мониторинг системы" Click="OpenGSM_Click" Background="#302e28" Margin="-15, 0, 0, 0" >
                     <Image Width="50" Height="50" Source="avares://moduleApp/Assets/gsm.png"/>
                 </Button>
             </StackPanel>
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="50" Margin="-30, 0, 0, 0">
-                <Button Content="Открыть Кастомную хуйню" Click="OpenNewWindow_Click"  />
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="50" >
+                <Button Content="Кастомный запуск" Click="OpenNewWindow_Click"  />
             </StackPanel>
 
         </StackPanel>

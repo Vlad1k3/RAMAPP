@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 using System.Diagnostics;
 using System.IO;
 using System;
+using System.Text.RegularExpressions;
 
 namespace moduleApp
 {
@@ -17,12 +18,19 @@ namespace moduleApp
             InitializeComponent();
             name_group = this.FindControl<TextBox>("name_group");
             count_MB = this.FindControl<TextBox>("count_MB");
+            count_MB.TextChanged += CountMB_TextChanged;
         }
 
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }
+        private void CountMB_TextChanged(object sender, EventArgs e)
+        {
+            // Удаляем все символы, которые не являются цифрами
+            count_MB.Text = Regex.Replace(count_MB.Text, @"[^0-9]", "");
+        }
+
 
 
         public async void MyButtonClickHandler(object sender, RoutedEventArgs e)
@@ -33,7 +41,7 @@ namespace moduleApp
 
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
-                FileName = "/home/ssofixd/Documents/C++/code/cshelper",
+                FileName = "/home/ssofixd/Documents/moduleApp/Source/cshelper",
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 RedirectStandardOutput = true
@@ -52,13 +60,14 @@ namespace moduleApp
                         sw.WriteLine(countMB);
                     }
                 }
+                this.Close();
 
                 await process.WaitForExitAsync();
 
                 string output = process.StandardOutput.ReadToEnd();
                 Console.WriteLine(output);
             }
-            this.Close();
+            
         }
 
         public void SetWindowTitle(string title)

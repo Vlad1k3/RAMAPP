@@ -20,101 +20,70 @@ namespace moduleApp
             AvaloniaXamlLoader.Load(this);
         }
 
-        private async void OpenManual_Click(object sender, RoutedEventArgs e){
-            var newWindow = new ManualWindow();
-            newWindow.Show();
-        
+        private void OpenManual_Click(object sender, RoutedEventArgs e)
+        {
+            OpenProgramWindow("ManualWindow", "", "", "");
         }
 
-        private async void OpenTelegram_Click(object sender, RoutedEventArgs e)
+        private void OpenTelegram_Click(object sender, RoutedEventArgs e)
         {
-            var newWindow = new SecondWindow()
-            {
-                ProgramExecute = "telegram-desktop"
-            };
-            newWindow.FindControl<TextBox>("name_group").Text = "TelegramGroup";
-            newWindow.FindControl<TextBox>("count_MB").Text = "300M";
-            newWindow.SetWindowTitle("Открыть Telegram");
-            newWindow.Show();
+            OpenProgramWindow("TelegramGroup", "telegram-desktop", "Открыть Telegram", "300");
         }
 
-        private async void OpenChromium_Click(object sender, RoutedEventArgs e)
+        private void OpenChromium_Click(object sender, RoutedEventArgs e)
         {
-            var newWindow = new SecondWindow()
-            {
-                ProgramExecute = "chromium",
-                Title = "Открыть Chrome" // Pass the title to SecondWindow
-            };
-            newWindow.FindControl<TextBox>("name_group").Text = "ChromeGroup";
-            newWindow.FindControl<TextBox>("count_MB").Text = "500M";
-            newWindow.SetWindowTitle("Открыть Chrome");
-            newWindow.Show();
+            OpenProgramWindow("ChromeGroup", "chromium", "Открыть Chrome", "500");
         }
 
-
-
-        private async void OpenFirefox_Click(object sender, RoutedEventArgs e)
+        private void OpenFirefox_Click(object sender, RoutedEventArgs e)
         {
-            // Создаём новое окно
-            var newWindow = new SecondWindow()
-            {
-                // Устанавливаем необходимое значение свойства
-                ProgramExecute = "firefox",
-                
-            };
-            newWindow.FindControl<TextBox>("name_group").Text = "FirefoxGroup";
-            newWindow.FindControl<TextBox>("count_MB").Text = "500M";
-            newWindow.SetWindowTitle("Открыть Firefox");
-            newWindow.Show();
+            OpenProgramWindow("FirefoxGroup", "firefox", "Открыть Firefox", "500");
         }
 
-        private async void OpenAndroid_Click(object sender, RoutedEventArgs e)
+        private void OpenAndroid_Click(object sender, RoutedEventArgs e)
         {
-            // Создаём новое окно
-            var newWindow = new SecondWindow()
-            {
-                // Устанавливаем необходимое значение свойства
-                ProgramExecute = "android-studio"
-            };
-            newWindow.FindControl<TextBox>("name_group").Text = "AndroidStudioGroup";
-            newWindow.FindControl<TextBox>("count_MB").Text = "1000M";
-            newWindow.SetWindowTitle("Открыть Android Studio");
-            newWindow.Show();
+            OpenProgramWindow("AndroidStudioGroup", "android-studio", "Открыть Android Studio", "1000");
         }
 
-
-        private async void OpenCode_Click(object sender, RoutedEventArgs e)
+        private void OpenVirtmng_Click(object sender, RoutedEventArgs e)
         {
-            // Создаём новое окно
-            var newWindow = new SecondWindow()
-            {
-                // Устанавливаем необходимое значение свойства
-                ProgramExecute = "code"
-            };
-            newWindow.FindControl<TextBox>("name_group").Text = "CodeGroup";
-            newWindow.FindControl<TextBox>("count_MB").Text = "300M";
-            newWindow.SetWindowTitle("Открыть Visual Studio Code");
-            newWindow.Show();
+            OpenProgramWindow("VirtGroup", "virt-manager", "Открыть Virtual Manager", "300");
         }
 
-        private async void OpenNewWindow_Click(object sender, RoutedEventArgs e)
+        private void OpenCode_Click(object sender, RoutedEventArgs e)
         {
-            // Создаём новое окно
+            OpenProgramWindow("CodeGroup", "code", "Открыть Visual Studio Code", "300");
+        }
+
+        private void OpenNewWindow_Click(object sender, RoutedEventArgs e)
+        {
             var newWindow = new CustomWindow();
-
             newWindow.Show();
         }
-        
-        private async void OpenGSM_Click(object sender, RoutedEventArgs e)
-        {
-            // Создаём новое окно
-            string programExec = "gnome-system-monitor";
-            string nameGroup = "monitorgroup";
-            string countMB = "200M";
 
+        private void OpenGSM_Click(object sender, RoutedEventArgs e)
+        {
+            RunProcess("/home/ssofixd/Documents/C++/code/cshelper", "gnome-system-monitor", "monitorgroup", "200M");
+        }
+
+        private void OpenProgramWindow(string groupName, string programExec, string windowTitle, string countMB)
+        {
+            var newWindow = new SecondWindow()
+            {
+                ProgramExecute = programExec,
+                Title = windowTitle
+            };
+            newWindow.FindControl<TextBox>("name_group").Text = groupName;
+            newWindow.FindControl<TextBox>("count_MB").Text = countMB;
+            newWindow.SetWindowTitle(windowTitle);
+            newWindow.Show();
+        }
+
+        private void RunProcess(string filePath, string programExec, string nameGroup, string countMB)
+        {
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
-                FileName = "/home/ssofixd/Documents/C++/code/cshelper",
+                FileName = filePath,
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 RedirectStandardOutput = true
@@ -134,12 +103,10 @@ namespace moduleApp
                     }
                 }
 
-                await process.WaitForExitAsync();
-
+                process.WaitForExit();
                 string output = process.StandardOutput.ReadToEnd();
                 Console.WriteLine(output);
             }
         }
-        
     }
 }
