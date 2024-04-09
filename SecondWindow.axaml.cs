@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System;
 using System.Text.RegularExpressions;
+using MySql.Data.MySqlClient;
 
 namespace moduleApp
 {
@@ -51,6 +52,27 @@ namespace moduleApp
             {
                 process.Start();
 
+                DateTime currentTime = DateTime.Now;
+
+                string connectionString = "Server=localhost;Port=3306;Database=ramappdb;Uid=ssofixd;Pwd=290805;";
+                string insertQuery = "INSERT INTO ProgramStart (datetime, started_app, start_group, MB_count, user_started) VALUES (@datetime, @started_app, @start_group, @MB_count, @user_started)";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@datetime", currentTime);
+                        command.Parameters.AddWithValue("@started_app", programExec);
+                        command.Parameters.AddWithValue("@start_group", nameGroup);
+                        command.Parameters.AddWithValue("@MB_count", countMB);
+                        command.Parameters.AddWithValue("@user_started", "ssofixd");
+                        
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+
                 using (StreamWriter sw = process.StandardInput)
                 {
                     if (sw.BaseStream.CanWrite)
@@ -66,7 +88,11 @@ namespace moduleApp
 
                 string output = process.StandardOutput.ReadToEnd();
                 Console.WriteLine(output);
+                
+
             }
+
+
             
         }
 
