@@ -42,7 +42,7 @@ namespace moduleApp
 
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
-                FileName = "/home/ssofixd/Documents/moduleApp/Source/cshelper",
+                FileName = "Source/cshelper",
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 RedirectStandardOutput = true

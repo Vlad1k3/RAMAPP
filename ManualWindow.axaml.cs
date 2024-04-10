@@ -42,7 +42,7 @@ namespace moduleApp {
             string userName = "ssofixd";
 
             string connectionString = "Server=localhost;Port=3306;Database=ramappdb;Uid=ssofixd;Pwd=290805;";
-            string selectQuery = "SELECT * FROM ProgramStart WHERE user_started = @user_started";
+            string selectQuery = " SELECT * from Users full join ProgramStart on @user_started = user_name ";
 
             using (var connection = new MySqlConnection(connectionString))
             {
