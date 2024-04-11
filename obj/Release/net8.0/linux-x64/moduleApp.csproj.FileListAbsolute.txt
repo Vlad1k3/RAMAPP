@@ -248,3 +248,17 @@
 /home/ssofixd/Documents/moduleApp/obj/Release/net8.0/linux-x64/moduleApp.csproj.CopyComplete
 /home/ssofixd/Documents/moduleApp/obj/Release/net8.0/linux-x64/moduleApp.genruntimeconfig.cache
 /home/ssofixd/Documents/moduleApp/obj/Release/net8.0/linux-x64/ref/moduleApp.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/BouncyCastle.Cryptography.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/Google.Protobuf.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/K4os.Compression.LZ4.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/K4os.Compression.LZ4.Streams.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/K4os.Hash.xxHash.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/Microsoft.Win32.SystemEvents.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/MySql.Data.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/System.Configuration.ConfigurationManager.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/System.Drawing.Common.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/System.Security.Cryptography.ProtectedData.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/System.Security.Permissions.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/System.Windows.Extensions.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/ZstdSharp.dll
+/home/ssofixd/Documents/moduleApp/bin/Release/net8.0/linux-x64/Source/cshelper

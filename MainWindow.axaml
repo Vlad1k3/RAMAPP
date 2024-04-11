@@ -18,7 +18,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top" 
                         Orientation="Horizontal">
-                <Button Content="Открыть помощь" Click="OpenManual_Click" FontSize="18" HorizontalAlignment="Center"  Background="#302e28"/>
+                <Button Content="Открыть историю запуска" Click="OpenManual_Click" FontSize="18" HorizontalAlignment="Center"  Background="#302e28"/>
 
             </StackPanel>
 

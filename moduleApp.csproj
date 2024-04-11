@@ -24,6 +24,11 @@
     <AvaloniaResource Include="Assets\vopros.png" />
     <AvaloniaResource Include="Assets\virt-manager.png" />
     <AvaloniaResource Include="Source\cshelper" />
+    
+    <Content Include="Source\cshelper">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.3" />
     <PackageReference Include="MySql.Data" Version="8.3.0" />

@@ -31,6 +31,7 @@ namespace moduleApp {
             var cmd = new MySqlCommand("DELETE FROM ProgramStart", db);
             await cmd.ExecuteNonQueryAsync();
             db.Close();
+
         
         }
 
@@ -73,6 +74,10 @@ namespace moduleApp {
 
             // Здесь используем ItemsSource
             resultsListBox.ItemsSource = items;
+        }
+
+        public async void CloseWindow(object sender, RoutedEventArgs e){
+            this.Close();
         }
 
     }

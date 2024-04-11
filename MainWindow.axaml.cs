@@ -66,7 +66,7 @@ namespace moduleApp
 
         private void OpenGSM_Click(object sender, RoutedEventArgs e)
         {
-            RunProcess("/home/ssofixd/Documents/C++/code/cshelper", "gnome-system-monitor", "monitorgroup", "200M");
+            RunProcess("Source/cshelper", "gnome-system-monitor", "monitorgroup", "200");
         }
 
         private void OpenProgramWindow(string groupName, string programExec, string windowTitle, string countMB)
@@ -82,7 +82,7 @@ namespace moduleApp
             newWindow.Show();
         }
 
-        private void RunProcess(string filePath, string programExec, string nameGroup, string countMB)
+        private async void RunProcess(string filePath, string programExec, string nameGroup, string countMB)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo
             {
@@ -107,7 +107,7 @@ namespace moduleApp
                     }
                 }
 
-                process.WaitForExit();
+                await process.WaitForExitAsync();
                 string output = process.StandardOutput.ReadToEnd();
                 Console.WriteLine(output);
             }
