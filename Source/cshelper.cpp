@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <format>
-#include <cctype> // Для использования функций isdigit и isalpha
+#include <cctype> 
 
 using namespace std;
 
@@ -20,27 +20,25 @@ int main() {
     getline(cin, count_MB);
 
 
-    string create_group_combined;
-    string setup_combined;
-    const string first_group_owner = " /sys/fs/cgroup";
-    const string second_group_owner = "/cgroup.subtree_control /sys/fs/cgroup";
-    string combined_exec;
+
+
 
     const char* command = nullptr;
 
     // create group
-    create_group_combined ="sudo cgcreate -g cpu,memory:" + name_group + " && " + "sudo cgset -r memory.max=" + ""+ count_MB +"M " + name_group;
+    string create_group_combined ="sudo cgcreate -g cpu,memory:" + name_group + " && " + "sudo cgset -r memory.max=" + ""+ count_MB +"M " + name_group;
     command = create_group_combined.c_str();
     cout << command << endl;
     system(command);
 
     //owner group
-    create_group_combined = "sudo chown ssofixd" + first_group_owner + "/" + name_group + second_group_owner + "/" + name_group + "/cgroup.procs" + first_group_owner + second_group_owner + "/cgroup.procs";
+    create_group_combined = "sudo chown ssofixd /sys/fs/cgroup/" + name_group + "/cgroup.subtree_control /sys/fs/cgroup/" + name_group + "/cgroup.procs /sys/fs/cgroup/cgroup.subtree_control /sys/fs/cgroup/cgroup.procs";
     command = create_group_combined.c_str();
     cout << command << endl;
     system(command);
-
-    combined_exec = "cgexec -g cpu,memory:" + name_group + " " + program_exec;
+    
+    //exec App
+    string combined_exec = "cgexec -g cpu,memory:" + name_group + " " + program_exec;
     command = combined_exec.c_str();
     cout << command << endl;
     system(command);
