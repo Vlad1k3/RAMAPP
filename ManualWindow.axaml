@@ -17,9 +17,9 @@
             <Button Click="CloseWindow" Content="Вернуться"/>
         </StackPanel>
 
-        <StackPanel Spacing="20" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Spacing="20" Margin="0, 30, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <!-- Установка фиксированных размеров и включение прокрутки для ListBox -->
-            <ListBox x:Name="ResultsListBox" Width="500" Height="200" />
+            <ListBox x:Name="ResultsListBox" Width="500" Height="300" />
         </StackPanel>
     </Grid>
 </Window>
