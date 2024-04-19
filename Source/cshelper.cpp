@@ -22,7 +22,6 @@ int main() {
 
 
 
-
     const char* command = nullptr;
 
     // create group
